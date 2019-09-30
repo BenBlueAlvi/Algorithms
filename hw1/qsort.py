@@ -90,11 +90,5 @@ def search(tree, value):
 		
 
 
-tree = qsort([3, 5, 1, 2,3, 123, 32, 32, 43])
-print(tree)
-print(sorted(tree))
-insert(tree, 20)
-print("post insert")
-print(tree)
-print(search(tree, 1))
+
 	
