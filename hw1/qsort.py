@@ -30,7 +30,7 @@ def qsort(arr):
 	
 	
 
-
+#O(n) each node is hit once
 def sorted(tree):
 	return _sorted(tree, [])
 
@@ -49,7 +49,7 @@ def _sorted(tree, list):
 	return list
 	
 	
-	
+#O(n/2) ~ O(n) each time the algorithim selects one of two nodes to traverse
 def insert(tree, value):
 	#base case
 	
@@ -68,7 +68,7 @@ def insert(tree, value):
 	
 	return tree
 	
-		
+#O(n/2) ~ O(n) each time the algorithim selects one of two nodes to traverse
 def search(tree, value):
 	#base case
 	if (tree == []):
@@ -93,8 +93,8 @@ def search(tree, value):
 tree = qsort([3, 5, 1, 2,3, 123, 32, 32, 43])
 print(tree)
 print(sorted(tree))
-insert(tree, 4)
+insert(tree, 20)
 print("post insert")
 print(tree)
-print(search(tree, 4))
+print(search(tree, 1))
 	

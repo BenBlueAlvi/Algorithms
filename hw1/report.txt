@@ -1,9 +1,10 @@
 0. Q: What's the best-case, worst-case, and average-case time complexities of quicksort.
    Briefly explain each case.
    
-	Best case: O(nlogn), occurs when the array being sorted is not already sorted and not already sorted in reverse order
+	Best case: O(nlogn), occurs when the array being sorted is not already sorted and not already sorted in reverse order. In this senario the
+	BST created will usually be fairly balanced, allowing for O(nlogn) time
 	Worst case: O(n^2), occurs whent the array is already sorted or sorted in reverse order. Because either side of the BST created via quicksort is heavy, quicksort
-	rarely moves elements around, and thus only performs comparisons.
+	rarely moves elements around, and thus only performs comparisons, causing O(n^2) time
    
    
    
@@ -20,3 +21,22 @@
 	98%
 5. Any other comments?
 	None
+	
+---Time Complexities of Algorithms---
+qselect: 
+-best/avg O(n) ~ ith smallest is only on left side
+-worst O(n^2) ~ ith smallest alternates between left and right sides, forcing the right side to be calaculated each time
+
+qsort:
+-best O(nlogn)
+-worst O(n^2) ` occurs when all numbers are sorted or reverse sorted and when pivoting around the first element
+basically when the tree created is extremely left or right heavy
+
+sorted:
+-O(n) each node is hit once
+
+insert:
+-O(n/2) ~ O(n) each time the algorithim selects one of two nodes to traverse
+
+search:
+-O(n/2) ~ O(n) each time the algorithim selects one of two nodes to traverse
