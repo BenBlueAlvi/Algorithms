@@ -1,0 +1,22 @@
+0. Q: What's the best-case, worst-case, and average-case time complexities of quicksort.
+   Briefly explain each case.
+   
+	Best case: O(nlogn), occurs when the array being sorted is not already sorted and not already sorted in reverse order
+	Worst case: O(n^2), occurs whent the array is already sorted or sorted in reverse order. Because either side of the BST created via quicksort is heavy, quicksort
+	rarely moves elements around, and thus only performs comparisons.
+   
+   
+   
+   
+--debrief--   
+1. Approximately how many hours did you spend on this assignment?
+	Approximately 2 hours at most
+
+2. Would you rate it as easy, moderate, or difficult?
+	Easy
+3. Did you work on it mostly alone, or mostly with other people?
+	Alone
+4. How deeply do you feel you understand the material it covers (0%–100%)? 
+	98%
+5. Any other comments?
+	None
