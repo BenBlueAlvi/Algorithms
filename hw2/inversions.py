@@ -6,7 +6,8 @@ import math
 #should be nlogn
 #equal to number of sort swaps
 #if left pointer less than right, no inversions
-def num_inversions(arr, ninv):
+#broken
+def _num_inversions(arr, ninv):
 
 	if (len(arr) > 1):
 		#get midpoint
@@ -15,8 +16,8 @@ def num_inversions(arr, ninv):
 		r = arr[mid:]
 		
 		#deviding, O(logn)
-		ninv = num_inversions(l, ninv)[1]
-		ninv = num_inversions(r, ninv)[1]
+		ninv = _num_inversions(l, ninv)[1]
+		ninv = _num_inversions(r, ninv)[1]
 		
 		
 		#merging, O(n)
@@ -29,7 +30,7 @@ def num_inversions(arr, ninv):
 			if r[j] < l[k]:
 				arr[i] = r[j]
 				j+=1
-				ninv += 1
+				ninv += (mid-i) 
 			else:
 				arr[i] = l[k]
 				k+=1
@@ -42,6 +43,7 @@ def num_inversions(arr, ninv):
 			j+=1
 			
 		while k < len(l):
+			#ninv += 1
 			arr[i] = l[k]
 			i+=1
 			k+=1
@@ -54,7 +56,9 @@ def num_inversions(arr, ninv):
 		
 		
 	return arr, ninv
-				
-print(num_inversions([4, 1, 3, 2], 0)) #4
-print(num_inversions([2, 4, 1, 3], 0)) #3
+	
+def num_inversions(arr):
+	return _num_inversions(arr, 0)
+
+
 		

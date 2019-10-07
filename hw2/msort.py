@@ -57,5 +57,5 @@ def mergesort(arr):
 		
 	return arr
 	
-print(mergesort([200, 5, 24, 12, 10]))
+
 	
