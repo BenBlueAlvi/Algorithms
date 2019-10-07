@@ -1,0 +1,21 @@
+Which of the following sorting algorithms are (or can be made) stable?
+   (a) mergesort ~ true
+   (b) quicksort with the first element as pivot  ~ true
+   (c) quicksort with randomized pivot  ~ false
+   (d) selection sort ~ false
+   (e) insertion sort ~ true
+   (f) heap sort ~ false
+   
+1. Approximately how many hours did you spend on this assignment?
+	Around 3 hours
+2. Would you rate it as easy, moderate, or difficult?
+	Moderate
+3. Did you work on it mostly alone, or mostly with other people?
+   Note you are encouraged to discuss with your classmates, 
+   but each students should submit his/her own code.
+	Alone
+4. How deeply do you feel you understand the material it covers (0%–100%)? 
+	50%
+5. Any other comments?
+	I feel the comparitivly little time we had to go over the implemnation of the inversions algorithm 
+	made this assignment harder.
