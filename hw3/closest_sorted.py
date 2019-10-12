@@ -87,6 +87,5 @@ def find(arr, a, k):
 	
 
 	
-print(find([1,2,3,4,4,5,6], 3.3, 4)) #returns   [2, 3, 4, 4]
-print(find([1,2,3,4,4,6,6], 5, 3)) #returns   [4,4,6]
+
 	
