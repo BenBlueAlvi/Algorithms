@@ -51,7 +51,7 @@ def find(arr, a, k):
 	i = idx
 	j = idx
 	
-	
+	print(idx)
 	
 	#go thorugh k values, i traverses backward, j traverses forward
 	#O(k)
@@ -60,6 +60,8 @@ def find(arr, a, k):
 		#only calculate diff is j within in the array
 		if (j < len(arr)): 
 			diff = abs(arr[i] - a) < abs(arr[j] - a) 
+			#special case for the beginnning
+			if (i == idx and j == idx): diff = True 
 		else: 
 			#otherwise just move i
 			diff = True
@@ -85,6 +87,6 @@ def find(arr, a, k):
 	
 
 	
-print(find([1,2,3,4,4,5,6], 3.3, 4)) #returns   [4,4,6]
-print(find([1,2,3,4,4,5,6], 4, 5)) #returns   [2,3,4,4,5]
+print(find([1,2,3,4,4,5,6], 3.3, 4)) #returns   [2, 3, 4, 4]
+print(find([1,2,3,4,4,6,6], 5, 3)) #returns   [4,4,6]
 	
