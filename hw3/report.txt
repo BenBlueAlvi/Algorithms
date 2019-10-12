@@ -1,0 +1,16 @@
+0. What's your name?
+	Benjamin Alvi
+1. Approximately how many hours did you spend on this assignment?
+	2 Hours
+2. Would you rate it as easy, moderate, or difficult?
+	Moderate
+3. Did you work on it mostly alone, or mostly with other people?
+   Note you are encouraged to discuss with your classmates, 
+   but each students should submit his/her own code.
+	Alone
+4. How deeply do you feel you understand the material it covers (0%-100%)? 
+	95%
+5. Which part(s) of the course you like the most so far?
+	Love the algorithim discussion as a whole
+6. Which part(s) of the course you dislike the most so far?
+	Nothing in particular
