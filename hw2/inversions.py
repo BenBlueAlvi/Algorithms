@@ -7,6 +7,8 @@ import math
 #equal to number of sort swaps
 #if left pointer less than right, no inversions
 #broken
+
+#sorted array + n inverssions
 def _num_inversions(arr, ninv):
 
 	if (len(arr) > 1):

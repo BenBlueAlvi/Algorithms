@@ -21,7 +21,7 @@ def qselect(i, arr):
 		return qselect(i, left)
 	
 	elif (len(left) < i-1): #value on right side
-		#recurse on the right side
+		#recurse on the right side, ignoring the pivot
 		right = [x for x in (arr[0:pivotIndex] + arr[pivotIndex+1:]) if x >= pivot]
 		return qselect(i - len(left) - 1, right) #reduce i to fit within the bounds of the right side
 	else:
