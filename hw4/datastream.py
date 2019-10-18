@@ -18,7 +18,8 @@ def _ksmallest(k, arr):
 	
 		#check for if incoming is worse than greatest arr of k
 		#print(arr[i], -s[0])
-		if (arr[i] < s[0]):
+	
+		if (-arr[i] < s[0]):
 			i+=1
 			continue
 		else:
@@ -28,6 +29,7 @@ def _ksmallest(k, arr):
 	
 		i+=1
 		
+	
 	#make the heap a min heap again, so we can pop the numbers in the correct, sorted order
 	for i in range(len(s)):
 		s[i] = -s[i]
@@ -43,4 +45,4 @@ def ksmallest(k, arr):
 	
 
 print(ksmallest(3, range(1000000, 0, -1)))
-print(ksmallest(4, [10, 2, 9, 3, 7, 8, 11, 5, 7]))
+print(ksmallest(3, [10, 2, 9, 3, 7, 8, 11, 5, 2, 9, 3, 7, 8, 11,9, 3, 7, 8, 7])) #2, 2, 3
