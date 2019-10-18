@@ -7,7 +7,7 @@ import heapq
 #(O(nlogk))
 def _ksmallest(k, arr):
 	s = []# only holds k elements, check if new element is worse or better
-	
+	if k > len(arr): k = len(arr)
 	#use min heap as max heap with negative numbers
 	for i in range(k):
 		heapq.heappush(s, -arr[i])
