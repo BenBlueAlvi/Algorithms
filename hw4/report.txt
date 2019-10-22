@@ -1,0 +1,27 @@
+0. There are two methods for building a heap from an unsorted array:
+   (1) insert each element into the heap  --- O(nlogn) -- heapq.heappush()
+   (2) heapify (top-down)                 --- O(n)     -- heapq.heapify()
+
+   (a) Derive these time complexities.
+   (b) Use a long list of random numbers to show the difference in time. (Hint: random.shuffle or random.sample)
+   (c) What about sorted or reversely-sorted numbers?
+   
+ Debriefing (required!): --------------------------
+
+0. What's your name?
+	Benjamin Alvi
+1. Approximately how many hours did you spend on this assignment?
+	3
+2. Would you rate it as easy, moderate, or difficult?
+	moderate
+3. Did you work on it mostly alone, or mostly with other people?
+   Note you are encouraged to discuss with your classmates, 
+   but each students should submit his/her own code.
+	alone
+4. How deeply do you feel you understand the material it covers (0%-100%)? 
+	50%
+5. Which part(s) of the course you like the most so far?
+	Time complexity discussion
+6. Which part(s) of the course you dislike the most so far?
+	occationally I find it hard to keep up with the lecture when going over 
+	how to solve the hw problems, as usually we are pressed for time at that point

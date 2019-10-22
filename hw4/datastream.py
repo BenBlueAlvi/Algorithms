@@ -17,7 +17,7 @@ def _ksmallest(k, arr):
 	while (i < len(arr)):
 	
 		#check for if incoming is worse than greatest arr of k
-		#print(arr[i], -s[0])
+		
 	
 		if (-arr[i] < s[0]):
 			i+=1
