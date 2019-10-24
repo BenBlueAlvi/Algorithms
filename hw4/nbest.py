@@ -99,42 +99,40 @@ def nbestb(a, b):
 	#qselect
 	return qselects(best, n)
 
-#(nlogn)
-def nbestc(a, b):
+#STUDY
+ def nbestc(a, b):
 	#dijkstras
 	
+	#use to test if element already used for testing
+	def put(i, j):
+		#make sure position is valid
+		if 0 <= i < n and 0 <= j < n and (i, j) not in used:
+			#add to used
+			used.add((i, j))
+			#push to h the sum, the values, and their position ~ heap organizes based on first element if the value is a list
+			heapq.heappush(h, ((sa[i] + sb[j], sb[j]), (sa[i], sb[j]), (i, j)))
+			
+	#sort a and b
+	sa = sorted(a)
+	sb = sorted(b)
+	n =  len(a)
+	h , used = [], set()
+	#put the first two values
+	put(0, 0)
 	
-	x, y = 0, 0
-	best = []
-	cans = []
-	n = len(a)
-	
-	a.sort()
-	b.sort()
-	
-	best.append((a[0], b[0]))
-	heapq.cans
-	
-	i = 0
-	while (i < n):
-		#compare a[1] b[0] and a[0] b[1] etc
-		if (paircomp((a[x+1],b[y]), (a[x],b[y+1]))):
-			best.append((a[x+1], b[y]))
-			x += 1
-		else:
-			best.append((a[x], b[y+1]))
-			y += 1
-	
-	
-		i += 1
-	
-	
-	#pop best, push successors
-
-	#each element: 1 pop 2 push
+	#loop through n
+	for _ in range(n):
+		#get the values out of the heap
+        _, xy, (i, j) = heapq.heappop(h)
+		#yeild
+        yield xy
+		#put the successors
+        put(i+1, j)
+        put(i, j+1)
 
 		
-	return best
+	
+	
 	
 
 

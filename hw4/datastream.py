@@ -11,33 +11,22 @@ def _ksmallest(k, arr):
 	#use min heap as max heap with negative numbers
 	for i in range(k):
 		heapq.heappush(s, -arr[i])
-		
-	
 	i = k
 	while (i < len(arr)):
-	
 		#check for if incoming is worse than greatest arr of k
-		
-	
 		if (-arr[i] < s[0]):
 			i+=1
 			continue
 		else:
-			
 			#use replace max value with new lesserval
 			heapq.heapreplace(s, -arr[i])
-	
 		i+=1
-		
-	
 	#make the heap a min heap again, so we can pop the numbers in the correct, sorted order
 	for i in range(len(s)):
 		s[i] = -s[i]
 	heapq.heapify(s)
-
 	#yield the numbers
 	for i in range(len(s)):
-		
 		yield heapq.heappop(s)
 		
 def ksmallest(k, arr):
