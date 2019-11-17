@@ -1,4 +1,4 @@
-from heapq import heapify, heappop, heapreplace
+from heapq import heapify, heappop, heapreplace, heappush
 
 #min heap of winners, use replace
 #should be nlogn
@@ -6,27 +6,25 @@ from heapq import heapify, heappop, heapreplace
 #STUDY, will be on midterm
 
 def kmergesort(arr, k):
-	#partition
-	leng = len(arr)
-	split = (leng-1) // k + 1
-	
-	#run all the mergesorts
-	lists = [kmergesort(arr[i:i+split], k) for i in range(0, leng, split)]
-		
-	return merge(lists)
-	
+	length = len(m)
+	if length <= 1:
+		return m
+	split = (length-1)//k + 1
+	k_lists = [kmergesort(m[i:i+split],k) for i in range(0, length, split)] # no empty sublists
+	return list(merge(*k_lists))
 
 def merge(lists):
-	heap = [(next(a), i, 0) for i, a in enumerate(map(iter, lists))]
+	#heap sort the lists
+
+	heap = [(a[0], i, 0) for i, a in enumerate(lists)]
 	heapify(heap)
 	while heap != []:
 		x, i, j = heappop(heap)
 		yield x
-		try:
-			heapreplace(heap, (next(a), i, a))
-		except StopIteration:
-			heappop(heap)
+		a = lists[i]
+		if j < len(a) - 1:
+			heappush(heap, (a[j+1], i, j+1))
 		
-
-def kmergesort(arr, k):
+print(*[1, 2, 3])
+print([x for x in merge([[2, 234, 54], [12, 21, 3], [23, 5, 76], [3, 5, 6]])])
 	

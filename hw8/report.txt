@@ -1,0 +1,24 @@
+0. For the following graphs, decide whether they are
+   (1) directed or undirected, (2) dense or sparse, and (3) cyclic or acyclic:
+
+   (a) Facebook 
+		Undirected, sparse, cyclic
+   (b) Twitter
+		Directed, sparse, cyclic
+   (c) a family
+		Undirected, dense, cyclic
+   (d) V=airports, E=direct_flights
+		Directed, sparse, cyclics
+   (e) a mesh
+		undirected, dense, cyclic
+   (f) V=courses, E=prerequisites
+		directed, sparse, acyclic
+   (g) a tree
+		undirected, sparse, acyclic
+   (h) V=linux_software_packages, E=dependencies
+		directed, sparse, acyclic
+   (i) DP subproblems for 0-1 knapsack
+		directed, sparse, acyclic
+
+   Can you name a very big dense graph?
+		Atom bonds in a black hole?
