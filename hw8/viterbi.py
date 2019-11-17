@@ -57,7 +57,11 @@ def longest(n, graph):
 			
 		back[nValue[u]] = u
 	
-	return (len(back)-1, list(back.values()))
 	
+	return (len(back) - 1 if len(back) > 0 else 0, list(back.values()))
+	
+print(longest(10, [(1, 2), (3, 4), (4, 6)])) #
+print(longest(8, [(0,2), (1,2), (2,3), (2,4), (4,3), (3,5), (4,5), (5,6), (5,7)])) #(5, [0, 2, 4, 3, 5, 6]) 
+print(longest(100, [])) #(5, [0, 2, 3, 4, 5, 6])
 
 	
