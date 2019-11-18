@@ -20,8 +20,8 @@ def longest(n, graph):
 	
 		if indegree[u] == 0:
 			queue.append(u)
+			
 
-	print(queue)
 	#while the queue isn't empty
 	head = 0
 	while head < len(queue):
@@ -29,16 +29,17 @@ def longest(n, graph):
 		u = queue[head]
 		head += 1
 		
-		#add to output
+		
 		output.append(u)
 		
 		#update indegrees
+		
 		for v in adjlist[u]:
 			indegree[v] -= 1
 			if indegree[v] == 0:
 				#if an indegree becomes 0, add it to the queue
 				queue.append(v)
-				
+		
 	#check for if we didn't reach any nodes
 	for u in range(n):
 
@@ -46,22 +47,29 @@ def longest(n, graph):
 			return None
 	
 	#begin VITERBI!
-	print(output)
+	
+	
 	nValue = defaultdict(int)
-	length = 0
+	
 	back = defaultdict(int)
+	rValue = defaultdict(int)
 	for u in output:
 		for v in adjlist[u]:
 			
 			nValue[v] = max(nValue[v], nValue[u] + 1)
+			#backtrace reeeee
 			
-		back[nValue[u]] = u
+			if nValue[v] == nValue[u] + 1: back[v] = u
+			rValue[nValue[v]] = v
+			
+	if (len(nValue) == 0): return (0, output)
 	
+	path = [rValue[max(rValue.keys())]]
+	for i in range(len(rValue)):
+		path.append(back[path[i]])
 	
-	return (len(back) - 1 if len(back) > 0 else 0, list(back.values()))
+	path.reverse()
+	return (len(rValue), path)
 	
-print(longest(10, [(1, 2), (3, 4), (4, 6)])) #
-print(longest(8, [(0,2), (1,2), (2,3), (2,4), (4,3), (3,5), (4,5), (5,6), (5,7)])) #(5, [0, 2, 4, 3, 5, 6]) 
-print(longest(100, [])) #(5, [0, 2, 3, 4, 5, 6])
 
 	
