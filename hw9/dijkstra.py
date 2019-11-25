@@ -6,9 +6,8 @@ from heapq import heapify, heappop, heappush
 #space (O(V))
 def shortest(n, edges):
 	#set all values to +infinity, minus n
-	values = defaultdict(int)
-	for i in range(1, n):
-		values[i] = float("inf")
+	values = defaultdict(lambda: float("inf"))
+	
 	values[0] = 0
 	
 	
