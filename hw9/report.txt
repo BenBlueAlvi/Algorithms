@@ -1,0 +1,22 @@
+Dijkstra Time:
+O(VlogV + E)
+
+nbest Time:
+O(k + k + n(logn + 2logn))
+O(k + k + n(logn + n))
+O(2k + n^2)
+O(n^2)
+
+
+0. What's your name?
+	Benjamin Alvi
+1. Approximately how many hours did you spend on this assignment?
+	4
+2. Would you rate it as easy, moderate, or difficult?
+	easy
+3. Did you work on it mostly alone, or mostly with other people?
+	Alone
+4. How deeply do you feel you understand the material it covers (0%-100%)? 
+	90%
+5. Any other comments?
+	None
