@@ -17,8 +17,7 @@ def shortest(n, edges):
 	for u, v, c in edges:
 		adjlist[u].append((c, v))
 		adjlist[v].append((c, u))
-		h[u] = float("inf")
-		h[v] = float("inf")
+		
 	h[0] = 0
 		
 	back = defaultdict(int)
