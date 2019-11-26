@@ -33,7 +33,7 @@ def shortest(n, edges):
 			return [v]
 		return solution(back[v]) + [v]
 	
-	while (h):
+	while (len(h) > 0):
 		u = h.popitem()[0]
 		
 	
