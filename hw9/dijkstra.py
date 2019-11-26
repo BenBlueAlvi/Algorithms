@@ -6,18 +6,13 @@ from heapdict import heapdict
 #space (O(V))
 def shortest(n, edges):
 
-
-
 	#set all values to +infinity, minus n
-	values = defaultdict(lambda: float("inf"))
+	values = defaultdict(lambda: 10000)
 	
 	values[0] = 0
-	
-	
+
 	h = heapdict()
 	h[0] = 0
-	
-
 	
 	adjlist = defaultdict(list)
 	for u, v, c in edges:
@@ -28,36 +23,34 @@ def shortest(n, edges):
 	back = defaultdict(int)
 	visited = set()
 	
-	def solution(v): # backtrace
-		if v not in back: # no predecessor, end of recursion: start node of the longest path
-			return [v]
-		return solution(back[v]) + [v]
+	def backtrace(v):
+		#base case if we reach 0
+		if v not in back: return [v]
+		return backtrace(back[v]) + [v]
 	
 	while (len(h) > 0):
 		u = h.popitem()[0]
 		
-	
+		if u == n-1: break
 		if u in visited: continue
 		visited.add(u)
-		if u == n-1: break
+		
 		
 		for c, v in adjlist[u]:
 			if v in visited: continue
-			values[v] = min(values[v], values[u] + c)
+			h[v] = values[v] = min(values[v], values[u] + c)
 			
 			if values[v] == values[u] + c: back[v] = u
-			#print("v", v)
-			
-			h[v] = values[v]
+			#print("v", v)	
 				
 		#print(h)
 	if n-1 not in back: return None
 	#backtrace
-	
-	
 
+	return (values[n-1], backtrace(n-1))
 	
-	return (values[n-1], solution(n-1))
+	
+	
 print(shortest(5, [(0,1,1), (0,2,5), (1,2,1), (2,3,2), (1,3,6)])) #None
 print(shortest(8, [(0,4,2),(0,1,7),(0,7,12),(1,2,1),(1,3,1),(1,7,5),(2,3,3),(2,4,1),(2,5,1),(2,7,10),(3,6,2),(3,4,5),(3,7,1)]))
 #(6, [0, 4, 2, 1, 3, 7])
