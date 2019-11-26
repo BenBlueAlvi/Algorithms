@@ -37,11 +37,16 @@ def shortest(n, edges):
 		
 		
 		for c, v in adjlist[u]:
+			
 			if v in visited: continue
-			h[v] = values[v] = min(values[v], values[u] + c)
+			values[v] = min(values[v], values[u] + c)
 			
 			if values[v] == values[u] + c: back[v] = u
 			if v == n-1: break
+			if v in h:
+				if h[v] != values[v] : h[v] = values[v]
+			else:
+				 h[v] = values[v]
 			#print("v", v)	
 				
 		#print(h)
