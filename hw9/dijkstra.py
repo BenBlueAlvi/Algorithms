@@ -7,18 +7,19 @@ from heapdict import heapdict
 def shortest(n, edges):
 
 	#set all values to +infinity, minus n
-	values = defaultdict(lambda: 10000)
 	
+	values = defaultdict(lambda: float("inf"))
 	values[0] = 0
-
 	h = heapdict()
-	h[0] = 0
+	
 	
 	adjlist = defaultdict(list)
 	for u, v, c in edges:
 		adjlist[u].append((c, v))
 		adjlist[v].append((c, u))
-
+		h[u] = float("inf")
+		h[v] = float("inf")
+	h[0] = 0
 		
 	back = defaultdict(int)
 	visited = set()
@@ -28,7 +29,7 @@ def shortest(n, edges):
 		if v not in back: return [v]
 		return backtrace(back[v]) + [v]
 	
-	while (len(h) > 0):
+	while (h):
 		u = h.popitem()[0]
 		
 		if u == n-1: break
@@ -37,19 +38,16 @@ def shortest(n, edges):
 		
 		
 		for c, v in adjlist[u]:
-			
 			if v in visited: continue
-			values[v] = min(values[v], values[u] + c)
-			
-			if values[v] == values[u] + c: back[v] = u
-			if v == n-1: break
-			if v in h:
-				if h[v] != values[v] : h[v] = values[v]
-			else:
-				 h[v] = values[v]
-			#print("v", v)	
+			if values[v] > values[u] + c:
+				h[v] = values[u] + c
+				values[v] = values[u] + c
+				back[v] = u
+				if v == n-1: break
 				
-		#print(h)
+		
+				
+	
 	if n-1 not in back: return None
 	#backtrace
 
