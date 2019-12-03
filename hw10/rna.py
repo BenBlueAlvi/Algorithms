@@ -24,16 +24,17 @@ def best(x):
 			
 		cur = -1
 		for k in range(i, j):
-			if _best(i,k) + _best(k+1, j) > cur:
-				cur = _best(i,k) + _best(k+1, j)
+			if x[k] + x[j] in pairs:	
+				if _best(i,k-1) + _best(k+1, j-1) + 1 > cur:
+					cur = _best(i,k-1) + _best(k+1, j-1) + 1
+					
+					back[i, j] = k
 				
-				back[i, j] = k
-				
-		if x[i] + x[j] in pairs:		
 			
-			if _best(i+1, j-1) + 1 > cur:
-				cur = _best(i+1, j-1) + 1
-				back[i, j] = -1
+			
+		if _best(i, j-1) > cur:
+			cur = _best(i, j-1)
+			back[i, j] = -1
 
 		OPT[i, j] = cur
 		return OPT[i, j]
@@ -46,11 +47,10 @@ def best(x):
 			return ""
 		k = back[i, j]
 		if k == -1:
-			return "(" + solution(i+1, j-1) + ")"
+			return solution(i, j-1) + "."
 		
 		else:
-			
-			return solution(i, k) + solution(k+1, j)
+			return solution(i, k-1) + "(" + solution(k+1, j-1) + ")"
 	
 	OPT = defaultdict(int)
 	
@@ -276,7 +276,7 @@ def kbest(x, k):
 
 #6
 
-print(kbest("GCACG", 6)) #[(2, '().()'), (1, '(..).'), (1, '()...'), (1, '.(..)'), (1, '...()'), (0, '.....')]
+print(best("GCACG")) #[(2, '().()'), (1, '(..).'), (1, '()...'), (1, '.(..)'), (1, '...()'), (0, '.....')]
 #print(kb("CCCGGG", 6)) #[(3, '((()))'), (2, '((.)).'), (2, '(.()).'), (2, '.(()).'), (2, '.(().)'), (2, '.((.))'), (2, '((.).)'), (2, '(.(.))'), (2, '(.().)'), (2, '((..))')]
 #print(kbest("UUGGACUUG", 129)) #().()
 #print(best("CCGG")) #(())
