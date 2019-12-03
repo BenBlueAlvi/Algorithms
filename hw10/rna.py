@@ -17,15 +17,16 @@ pairs = set(["AU", "GU", "GC", "UA", "UG", "CG"])
 #complete but slow
 def best(x):
 	
-	back = defaultdict(int)
+	back = {}
 	def _best(i, j):
 		if (i, j) in OPT:
 			return OPT[i, j]
 			
-		cur = 0
+		cur = -1
 		for k in range(i, j):
 			if _best(i,k) + _best(k+1, j) > cur:
 				cur = _best(i,k) + _best(k+1, j)
+				
 				back[i, j] = k
 				
 		if x[i] + x[j] in pairs:		
@@ -46,8 +47,9 @@ def best(x):
 		k = back[i, j]
 		if k == -1:
 			return "(" + solution(i+1, j-1) + ")"
+		
 		else:
-			print(k)
+			
 			return solution(i, k) + solution(k+1, j)
 	
 	OPT = defaultdict(int)
@@ -57,7 +59,7 @@ def best(x):
 		OPT[i, i] = 0
 		OPT[i, i-1] = 0
 	b = _best(0, len(x)-1)
-	print(back)
+	
 	return b, solution(0, len(x)-1)
 
 
@@ -203,7 +205,7 @@ def kbest(x, k):
 	return b
 
 		
-print(best("ACAGU")) #().()
+print(best("CGAGGUGGCACUGACCAAACACCACCGAAC")) #().()
 '''
 (2, '((.))')
 6
@@ -214,7 +216,7 @@ print(best("ACAGU")) #().()
 #6
 
 print(best("GCACG")) #[(2, '().()'), (1, '(..).'), (1, '()...'), (1, '.(..)'), (1, '...()'), (0, '.....')]
-print(best("CCCGGG")) #[(3, '((()))'), (2, '((.)).'), (2, '(.()).'), (2, '.(()).'), (2, '.(().)'), (2, '.((.))'), (2, '((.).)'), (2, '(.(.))'), (2, '(.().)'), (2, '((..))')]
+#print(best("CCCGGG")) #[(3, '((()))'), (2, '((.)).'), (2, '(.()).'), (2, '.(()).'), (2, '.(().)'), (2, '.((.))'), (2, '((.).)'), (2, '(.(.))'), (2, '(.().)'), (2, '((..))')]
 #print(kbest("UUGGACUUG", 129)) #().()
 #print(best("CCGG")) #(())
 
