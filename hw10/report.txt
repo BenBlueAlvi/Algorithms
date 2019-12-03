@@ -1,0 +1,12 @@
+0. What's your name?
+	Benjamin Alvi
+1. Approximately how many hours did you spend on this assignment?
+	8+
+2. Would you rate it as easy, moderate, or difficult?
+	Difficult
+3. Did you work on it mostly alone, or mostly with other people?
+	Alone, a little with others
+4. How deeply do you feel you understand the material it covers (0%-100%)? 
+	75%
+5. Any other comments?
+	That was hard
